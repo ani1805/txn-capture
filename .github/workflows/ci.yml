@@ -22,3 +22,7 @@ jobs:
            cache: maven
       - name: Build
         run: ./mvnw clean package
+      - name: Build Docker image
+        run: docker build -t txn-capture:${GITHUB_SHA::7}
+      - name: List Docker image
+        run: docker ps
